@@ -1,41 +1,51 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddCategory from "./Components/AddCategory";
 import AddMovie from "./Components/AddMovie";
-import AdminSidebar from "./Components/AdminSidebar";
+
+import { fetchCategoriesWithMovies } from "../store/movie-actions";
 import BookedMovies from "./Components/BookedMovies";
 import ShowtimeManagement from "./Components/ShowtimeManagement";
-
-
-
+import Mainpage from "./Pages/Mainpage";
+import { useSelector,useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import AdminSidebar from "./Components/AdminSidebar";
 const AdminApp = () => {
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
+  useEffect(()=>{
+     dispatch(fetchCategoriesWithMovies());
+  },[dispatch])
   return (
-    <Router>
+   
       <div className="admin-app">
-        <AdminSidebar />
+       <AdminSidebar/>
         <div className="content">
           <Routes>
-            <Route path="/admin/add-category" element={<AddCategory />} />
-            <Route path="/admin/add-movie" element={<AddMovie />} />
+            <Route path="/add-category" element={<AddCategory />} />
+            <Route path="/add-movie" element={<AddMovie />} />
             <Route
-              path="admin/showtime-management"
+              path="/showtime-management"
               element={<ShowtimeManagement />}
             />
-            <Route path="/admin/booked-movies" element={<BookedMovies />} />
-            <Route path="/admin/booked-movies" element={<BookedMovies />} />
+            <Route path="/booked-movies" element={<BookedMovies />} />
+            
             <Route
-              path="/admin"
+              path="/"
               element={
-                <h2>
-                  Welcome to the Admin Panel. Select an option from the sidebar.
-                </h2>
+                <Mainpage/>
               }
             />
           </Routes>
         </div>
       </div>
-    </Router>
+   
   );
 };
 
+
+
 export default AdminApp;
+
+
+

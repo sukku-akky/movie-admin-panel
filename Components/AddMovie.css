@@ -1,0 +1,109 @@
+.add-movie {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    margin-left: 300px;
+  }
+  
+  .add-movie h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #343a40; /* Dark grey text */
+  }
+  
+  .add-movie form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    
+  }
+
+  .parent-bt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: #f8f9fa;
+  }
+  
+  .add-bt {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    width: 150px;
+    border-radius: 5px;
+  }
+  
+  .add-movie label {
+    font-weight: bold;
+    color: #495057; /* Slightly darker grey */
+    margin-bottom: 0.5rem;
+  }
+  
+  .add-movie input,
+  .add-movie textarea,
+  .add-movie select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .add-movie textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .add-movie input:focus,
+  .add-movie textarea:focus,
+  .add-movie select:focus {
+    border-color: #007bff; /* Blue border on focus */
+  }
+  
+  .add-movie button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* Blue background */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-movie button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .add-movie button:active {
+    background-color: #004085; /* Even darker blue on click */
+  }
+  
+  .add-movie form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    .add-movie {
+      padding: 1.5rem;
+    }
+    .add-movie h2 {
+      font-size: 1.5rem;
+    }
+    .add-movie button {
+      font-size: 0.9rem;
+    }
+  }
+  

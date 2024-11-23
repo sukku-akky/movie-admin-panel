@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import "./AddCategory.css";
+import { useNavigate } from "react-router-dom";
 import { addCategoryToDatabase } from "../../store/movie-actions";
 const AddCategory = () => {
+  const navigate=useNavigate();
   const [categoryName, setCategoryName] = useState("");
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
@@ -14,6 +17,7 @@ const AddCategory = () => {
       await dispatch(addCategoryToDatabase(categoryName));
       alert("Category added successfully!");
       setCategoryName("");
+      navigate("/");
     } catch (error) {
       console.error("Error adding category: ", error);
       alert("Failed to add category.");
@@ -21,10 +25,11 @@ const AddCategory = () => {
   };
 
   return (
-    <div>
+    <div className="add-category">
       <h2>Add Category</h2>
       <form onSubmit={handleSubmit}>
         <select
+        className="cat-select"
           value={categoryName}
           onChange={(e) => setCategoryName(e.target.value)}
         >
@@ -36,7 +41,9 @@ const AddCategory = () => {
           <option value="Top Rated">Top Rated</option>
           <option value="Hero Section">Hero Section</option>
         </select>
-        <button type="submit">Add Category</button>
+        <div >
+        <button className="cat-bt"type="submit">Add Category</button>
+        </div>
       </form>
     </div>
   );

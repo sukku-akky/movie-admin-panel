@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import "./AddMovie.css"
+import { useNavigate } from "react-router-dom";
 import { addMovieToDatabase } from "../../store/movie-actions";
 import { useSelector, useDispatch } from "react-redux";
 const AddMovie = () => {
+  const navigate=useNavigate();
   const dispatch = useDispatch();
   const selectedCategory=useSelector((state)=>state.movie.selectedCategory)
   const [movieDetails, setMovieDetails] = useState({
@@ -47,6 +50,7 @@ const AddMovie = () => {
         showtime: "",
         trailerLink: "",
       });
+      navigate("/")
     } catch (error) {
       console.error("Error adding movie: ", error);
       alert("Failed to add movie.");
@@ -169,7 +173,9 @@ const AddMovie = () => {
             required
           />
         </div>
-        <button type="submit">Add Movie</button>
+        <div className="parent-bt">
+        <button className="add-bt"type="submit">Add Movie</button>
+        </div>
       </form>
     </div>
   );
