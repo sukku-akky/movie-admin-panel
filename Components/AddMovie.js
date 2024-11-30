@@ -50,7 +50,7 @@ const AddMovie = () => {
         showtime: "",
         trailerLink: "",
       });
-      navigate("/")
+      navigate("/admin")
     } catch (error) {
       console.error("Error adding movie: ", error);
       alert("Failed to add movie.");
@@ -58,7 +58,10 @@ const AddMovie = () => {
   };
 
   return (
+    <>
+    <h1>Adding movie to {selectedCategory}</h1>
     <div className="add-movie">
+      
       <h2>Add Movie</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -178,6 +181,7 @@ const AddMovie = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 

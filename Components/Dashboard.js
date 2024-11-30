@@ -12,9 +12,11 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
  
-  const openShowtime = (movieId) => {
-    navigate("/showtime-management");
+  const openShowtime = (movieId,categoryId) => {
+    navigate("/admin/showtime-management");
     dispatch(movieActions.setSelectedMovieId(movieId));
+    dispatch(movieActions.setSelectedCategoryId(categoryId));
+    console.log(movieId);
   };
   return (
     <div className="dashboard">
@@ -31,12 +33,12 @@ const Dashboard = () => {
                   <div
                     key={movie.id}
                     className="movie-card"
-                    onClick={() => openShowtime(movie.id)}
+                    onClick={() => openShowtime(movie.id,category.id)}
                   >
                     <img
                       src={movie.moviePoster || "/default-poster.jpg"}
                       alt={movie.name}
-                      className="movie-poster"
+                      className="movie-poster-d"
                     />
                     <div className="movie-details">
                       <h3>{movie.name}</h3>

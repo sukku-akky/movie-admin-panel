@@ -49,7 +49,7 @@
     transform: scale(1.05);
   }
   
-  .movie-poster {
+  .movie-poster-d {
     width: 100%;
     height: 250px;
     object-fit: cover;

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./AddCategory.css";
+
 import { useNavigate } from "react-router-dom";
 import { addCategoryToDatabase } from "../../store/movie-actions";
+import { movieActions } from "../../store/redux-store";
 const AddCategory = () => {
   const navigate=useNavigate();
   const [categoryName, setCategoryName] = useState("");
@@ -16,8 +18,8 @@ const AddCategory = () => {
     try {
       await dispatch(addCategoryToDatabase(categoryName));
       alert("Category added successfully!");
-      setCategoryName("");
-      navigate("/");
+      dispatch(movieActions.setSelectedCategory(categoryName));
+      navigate("/admin/add-movie");
     } catch (error) {
       console.error("Error adding category: ", error);
       alert("Failed to add category.");
@@ -25,6 +27,8 @@ const AddCategory = () => {
   };
 
   return (
+    <>
+  
     <div className="add-category">
       <h2>Add Category</h2>
       <form onSubmit={handleSubmit}>
@@ -46,6 +50,7 @@ const AddCategory = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 

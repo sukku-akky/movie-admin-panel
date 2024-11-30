@@ -12,7 +12,7 @@ const ShowtimeManagement = () => {
     showTime: "",
   });
   const dispatch=useDispatch();
-  const selectedCategory=useSelector(state=>state.movie.selectedCategory);
+  
   const categoryId=useSelector(state=>state.movie.selectedCategoryId)
   const movieId=useSelector(state=>state.movie.selectedMovieId);
 
